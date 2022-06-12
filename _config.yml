@@ -39,5 +39,8 @@ permalink: /posts/:title/
 excerpt_separator: <!--more-->
 author: http://www.linkedin.com/in/alainpham
 
+ markdown: rdiscount
+ pygments: true
+
 host: 0.0.0.0
 
