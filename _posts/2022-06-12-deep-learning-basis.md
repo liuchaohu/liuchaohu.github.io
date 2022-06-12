@@ -8,3 +8,5 @@ categories: dl
 tags: [quarkus, kubernetes, camel, kafka, smallrye]
 github: "liuchaohu.github.io"
 ---
+
+用来测试
