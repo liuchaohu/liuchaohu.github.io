@@ -1,4 +1,4 @@
-# Business Jekyll Theme
+# 刘朝虎的博客
 
 Business Jekyll Theme is a theme that is designed to be used for small and medium business. It is designed by a team from [Technext](https://github.com/technext/). The theme is then ported over by [Melvin Ch'ng](http://melvinchng.github.io) for Jekyll support. The original source code can be obainted from Technext's [repository](https://github.com/technext/office)
 
