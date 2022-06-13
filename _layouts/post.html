@@ -1,44 +1,106 @@
 ---
-layout: default
+layout: compress
 ---
-{% include calculate_relative_base.html %}
-{% capture post_url %}{{ relativebase }}{{ page.url }}{% endcapture %}
-{% assign post_url = post_url | replace: "//", "/" %}
-<section class="hidden">
-  <div class="post">
-      <a  class="post-list-title" href="{{ post_url }}">{{ page.title }}</a>
-      {% include post_meta.html type="post-card-meta" %}
-        <div class="post-excerpt">
-            {{ page.content | markdownify | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> read more</a>
-        </div>
-  </div>
-</section>
-<div class="flex-container transparent">
-  {% include header.html %}
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    {% include schema-meta.html %}
-    <div class="page-image">
-      <div class="cover-image" style="background: url('{{ relativebase }}assets/img/{{ page.img }}') center no-repeat; background-size: cover;"></div>
-    </div>
-    <div class="wrapper">
-      <div class="page-content">
-        <div class="header-page">
-          <h1 class="page-title">{{ page.title }}</h1>
-          {% include post_meta.html type="post-page-meta" %}
-        </div>
-        {% include sidebar.html context="post" class="side" id="sidebar" %}
-        {% if page.toc %}{% include sidebar-toc.html %}{% endif %}
-        {% include github-button.html %}
-        {{page.content | markdownify}}
-        {% include sidebar.html context="post" class="inline" id="post-end" %}
-        <div class="separator"></div>
-        {% include author-box.html %}
-        {% include recent-post.html %}
-        {% include newsletter.html %}
-        {% include disqus.html %}
+<html lang="{{ page.lang | default: site.lang | default: "en_US" }}">
+
+{% include head.html %}
+
+<body class="site">
+
+{% if site.google_tag_manager %}
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager }}"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% endif %}
+
+{% include header.html %}
+
+  {% if page.featured-img %}
+
+  <div class="hero lazyload" data-bg="{{site.url}}/assets/img/posts/{{page.featured-img}}.jpg">
+    {% else %}
+    <div class="hero dark-bg">
+      {% endif %}
+      <div class="hero__wrap">
+        <h1 class="hero__title">{{ page.title }}</h1>
+        <p class="hero__meta">
+            <span>
+              <time>{{ page.date | date_to_string }}</time>&nbsp;
+            </span>
+          <span>
+              {% assign words = content | number_of_words %}
+                {% if words < 360 %}
+                  1 min
+                {% else %}
+                  {{ words | divided_by:180 }} mins
+              {% endif %} read
+              &nbsp;
+          </span>
+        </p>
       </div>
-    </div> <!-- End Wrapper -->
-  </article>
-  {% include search.html %}
+    </div>
+  </div>
+
+  <main class="site__content">
+    <div class="container">
+      <article class="post-content" itemprop="articleBody">
+
+        {{ content }}
+
+      </article>
+      <div class="post-content controls__inner">
+        <div class="controls__item prev">
+          {% if page.previous.url %}
+
+          <span>Previous</span>
+          <a href="{{page.previous.url | relative_url }}">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11">
+                    <path fill="fillColor" d="M5.647 1.718c.37-.434.323-1.09-.106-1.465A1.016 1.016 0 0 0 4.095.36L.25 4.875a1.05 1.05 0 0 0 .017 1.378l3.95 4.407c.38.424 1.03.456 1.448.07a1.05 1.05 0 0 0 .07-1.468l-3.34-3.725 3.253-3.819z"/>
+                  </svg>
+              </span>
+            {{page.previous.title | strip_html | truncate: 30}}
+          </a>
+          {% endif %}
+        </div>
+
+        <div class="controls__item next">
+          {% if page.next.url %}
+          <span>Next</span>
+          <a href="{{page.next.url | relative_url }}">
+            {{page.next.title | strip_html | truncate: 30}}
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11">
+                  <path fill="#fillColor" d="M.353 9.282c-.37.434-.323 1.09.106 1.465a1.016 1.016 0 0 0 1.446-.107L5.75 6.125a1.05 1.05 0 0 0-.017-1.378L1.784.34A1.015 1.015 0 0 0 .336.27a1.05 1.05 0 0 0-.07 1.468l3.34 3.725L.353 9.282z"/>
+                </svg>
+              </span>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% if site.disqus.shortname %}
+
+    <div class="comments">
+      <div class="container">
+        <div class="post-content">
+
+          {% include disqus.html %}
+
+        </div>
+      </div>
+    </div>
+
+    {% endif %}
+
+  </main>
+
   {% include footer.html %}
-</div>
+
+</body>
+
+</html>
