@@ -1,56 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
-<body>
-	{% include header.html %}
-	<div class="container">
-
-	{% if page.id %}
-	<p>
-		<strong>{{ page.published | date: '%B %d, %Y' }}</strong> ( last updated : {{ page.date | date: '%B %d, %Y' }} )
-		<br>
-		{% for tag in page.tags %}
-			<a class="label label-default" href="/tags/#{{ tag | slugify }}">{{ tag }}</a>
-		{% endfor %}
-    </p>
-	{%if page.github %}
-	<p>
-    	<a href="{{ page.github }}" class="btn btn-default">
-		    <i class="fa fa-github fa-2x"></i>  {{ page.github }}
-			</a>
-	</p>
-	{% endif %}
-	<hr>
-	<h1>Abstract</h1>
-	{% endif %}
-
-	{{ content }}
-
-
-	{% if page.id %}
-	<p>Originally published {{ page.published | date: '%B %d, %Y' }}
-    <br> Latest update {{ page.date | date: '%B %d, %Y' }}</p>
-
-    <p><strong>Related posts :</strong></p>
-        <ul>
-	    {% for allpost in site.posts %}
-			  {% for tag in page.tags %}
-			  {% if allpost.tags contains tag and allpost.id != page.id %}
-			  <li>
-			      <a href="{{ allpost.url }}">
-			        {{ allpost.title }}
-			      </a>
-			  </li>
-			  {% break %}
-			  {% endif %}
-			  {% endfor %}
-		{% endfor %}
-		</ul>
-	{% endif %}
-
-	{% include disqus.html %}
-	</div>
-	{% include footer.html %}
-	{% include analytics.html %}
-</body>
+  {% include head.html %}
+  <body>
+    {{ content }}
+    <div class="top" title="Top">
+      <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="angle-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-angle-up fa-w-8 fa-2x"><path fill="currentColor" d="M136.5 185.1l116 117.8c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.7-12.3 4.7-17 0L128 224.7 27.6 326.9c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l116-117.8c4.7-4.6 12.3-4.6 17 .1z" class=""></path></svg>
+    </div>
+    {% include javascripts.html %}
+    {% include analytics.html %}
+  </body>
 </html>

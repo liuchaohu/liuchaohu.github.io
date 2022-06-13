@@ -1,52 +1,28 @@
 ---
-layout: default
+layout: menu-page
 title: Tags
-permalink: /tags/
+permalink: tags:output_ext
 ---
-
-{% comment%}
-Here we generate all the tags.
-{% endcomment%}
-
-{% assign rawtags = "" %}
-{% for post in site.posts %}
-{% assign ttags = post.tags | join:'|' | append:'|' %}
-{% assign rawtags = rawtags | append:ttags %}
-{% endfor %}
-
-{% assign rawtags = rawtags | split:'|' | sort %}
-
-{% assign tags = "" %}
-
-{% for tag in rawtags %}
-{% if tag != "" %}
-
-{% if tags == "" %}
-{% assign tags = tag | split:'|' %}
-{% endif %}
-
-{% unless tags contains tag %}
-{% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
-{% endunless %}
-{% endif %}
-{% endfor %}
-
-<br/>
-
-{% for tag in tags %}
-<a class="label label-success" href="#{{ tag | slugify }}" > {{ tag }} </a> &nbsp;
-{% endfor %}
-{% for tag in tags %}
-<h4 id="{{ tag | slugify }}">{{ tag }}</h4>
-<ul>
-  {% for post in site.posts %}
-  {% if post.tags contains tag %}
-  <li>
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-  </li>
-  {% endif %}
-  {% endfor %}
-</ul>
-{% endfor %}
+{% include calculate_relative_base.html %}
+{% include get-site-tags.html %}
+<section class="blog-tags">
+  <h2>tags</h2>
+  {% include tag_cloud.html %}
+  <div class="tags-page-content">
+  {% for item in (0..site.tags.size) %}{% unless forloop.last %}
+    {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+    <div class="list-group">
+      <div class="list-group-title"><a id="{{ this_word | cgi_escape }}">{{ this_word }}</a></div>
+      <div>
+      {% for post in site.tags[this_word] %}{% if post.title != null %}
+      {% include remove_double_slash.html %}
+        <div class="list-item">
+          <a href="{{ post_url }}">{{ post.title }}</a>
+          {% include post_meta.html type="post-card-meta" %}
+        </div>
+      {% endif %}{% endfor %}
+       </div>
+    </div>
+  {% endunless %}{% endfor %}
+  </div>
+</section>
