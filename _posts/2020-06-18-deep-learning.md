@@ -3,7 +3,7 @@ layout: post
 title:  "深度学习基础"
 date:   2022-06-18 21:08:59
 author: Ben Centra
-categories: Deep Learning
+categories: DL
 tags:	backbone
 cover:  "/assets/instacode.png"
 ---
