@@ -48,5 +48,3 @@ compress_html:
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
-
-timezone: Asia/Shanghai
