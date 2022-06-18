@@ -1,40 +1,15 @@
-html {
-  box-sizing: border-box;
-}
+// Bitters 1.0.0
+// http://bitters.bourbon.io
+// Copyright 2013-2015 thoughtbot, inc.
+// MIT License
 
-body {
-  -webkit-overflow-scrolling: touch;
-}
+@import "variables";
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+// Neat Settings -- uncomment if using Neat -- must be imported before Neat
+// @import "grid-settings";
 
-//sticky footer
-.site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.site__content {
-  flex: 1;
-}
-
-// responsive images
-img {
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  vertical-align: middle;
-}
-
-img::selection {
-  background: transparent;
-}
-
-figure {
-  margin: 0;
-}
+@import "buttons";
+@import "forms";
+@import "lists";
+@import "tables";
+@import "typography";

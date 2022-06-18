@@ -1,104 +1,79 @@
-// General
 body {
-  background-color: $bg-color;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
-  line-height: 1.5;
-  color: $text-color;
+  @include font-feature-settings("kern", "liga", "pnum");
   -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
 }
 
-::selection {
-  color: $bg-color;
-  background-color: $reverse;
-}
-
-// Reboot
-p {
-  margin-top: 0;
-  margin-bottom: 1.25rem;
-}
-
-// Typography
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: $heading-color;
-  margin-top: 0;
-  margin-bottom: .5rem;
+  font-family: $heading-font-family;
+  font-size: $base-font-size;
+  line-height: $heading-line-height;
+  margin: 0 0 $base-font-size;
+  margin: 0 0 rem($base-font-size);
+}
+h1 {
+	font-size: modular-scale(4);
+}
+h2 {
+	font-size: modular-scale(3);
+}
+h3 {
+	font-size: modular-scale(2);
+}
+h4 {
+	font-size: modular-scale(1);
+}
+h5 {
+	font-size: modular-scale(-1);
+}
+h6 {
+	font-size: modular-scale(-2);
 }
 
-//reset link
+p {
+  margin: 0 0 $small-spacing;
+}
+
 a {
-  color: $link-color;
+  color: $action-color;
   text-decoration: none;
-  transition: all .2s linear;
-  border-bottom: 1px dashed $link-color;
+  // transition: color 0.1s linear;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: darken($action-color, 10%);
+    text-decoration: underline;
+  }
 
   &:active,
   &:focus {
-    outline: 0;
-  }
-
-  &:hover,
-  &:focus {
-    color: $primary-light;
-    border-bottom: 1px solid $primary-light;
+    outline: none;
   }
 }
 
 hr {
-  height: 1px;
-  background: $border;
-  border: 0;
+  border-bottom: $base-border;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-spacing 0;
 }
 
-em {
-  font-style: italic;
-}
-
-abbr[title] {
-  text-decoration: none;
-}
-
-mark {
-  background: #ff0;
-  color: $heading-color;
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
 }
 
 code {
-  padding: 2px 4px;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.9rem;
-  color: $code-text-color;
-  background-color: $code-bg-color;
-  border-radius: 0.3rem;
-}
 
-pre {
-  padding: 0.8rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow-x: auto;
-  font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  color: $code-text-color;
-  word-wrap: normal;
-  background-color: $code-bg-color;
-  border: solid 1px $border-color;
-  border-radius: 0.3rem;
-
-  > code {
-    padding: 0;
-    margin: 0;
-    font-size: 0.9rem;
-    color: $code-text-color;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-  }
 }
