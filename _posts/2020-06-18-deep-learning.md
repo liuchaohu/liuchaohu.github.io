@@ -10,7 +10,7 @@ cover:  "/assets/instacode.png"
 
 # 1 从最基础的神经网络开始
 <div align="center">
-<img src="../../assets/img/posts/chliu/nn.webp" width=400>
+<img src="../assets/img/posts/chliu/nn.webp" width=400>
 <br>
 图1 单个神经元
 </div>
@@ -18,7 +18,7 @@ cover:  "/assets/instacode.png"
 上图给出展示了一个简单的神经网络。权重、输入和偏置项的线性组合构成了$h=\Sigma w_i x_i +b$，再通过激活函数$f(h)$做一个映射，给出感知器最终的输出，标记为$y$. 把上图中间三个元素看成一个整体，当作一个神经元，对这个神经元来说，输入是一系列值$x\in R^n$,输出是一个具体的数值$y\in R$.
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/mul_layer_nn.png">
+<img src="../assets/img/posts/chliu/mul_layer_nn.png">
 <br>
 图2 多层神经网络
 </div>
@@ -38,7 +38,7 @@ $$
 这样增加整个网络的非线性，我们引入激活函数：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/actfunc.jpg">
+<img src="../assets/img/posts/chliu/actfunc.jpg">
 <br>
 图3 激活函数
 </div>
@@ -67,7 +67,7 @@ $$\frac{e^{x_i}}{\Sigma_j{e^{x_j}}} \quad i=0,1,2,\dots,n-1$$
 而所谓深度学习，就是隐藏层很多的、足够深的神经网络。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/dnn.webp" width="500" height="500">
+<img src="../assets/img/posts/chliu/dnn.webp" width="500" height="500">
 <br>
 图4 深度神经网络
 </div>
@@ -144,7 +144,7 @@ if __name__ == '__main__':
 它是最早发布的卷积神经网络之一，因其在计算机视觉任务中的高效性能而受到广泛关注。 这个模型是由AT&T贝尔实验室的研究员Yann LeCun在1989年提出的（并以其命名），目的是识别图像 [LeCun et al., 1998]中的手写数字。 当时，Yann LeCun发表了第一篇通过反向传播成功训练卷积神经网络的研究，这项工作代表了十多年来神经网络研究开发的成果。 LeNet被广泛用于自动取款机（ATM）机中，帮助识别处理支票的数字。 时至今日，一些自动取款机仍在运行Yann LeCun和他的同事Leon Bottou在上世纪90年代写的代码。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/lenet.svg">
+<img src="../assets/img/posts/chliu/lenet.svg">
 <br>
 图5 LeNet
 </div>
@@ -161,7 +161,7 @@ if __name__ == '__main__':
 输入输出都是一个通道：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/correlation.svg">
+<img src="../assets/img/posts/chliu/correlation.svg">
 <br>
 图6 卷积操作
 </div>
@@ -169,7 +169,7 @@ if __name__ == '__main__':
 动态的看这个卷积过程就是：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/conv.gif">
+<img src="../assets/img/posts/chliu/conv.gif">
 <br>
 图7 卷积操作
 </div>
@@ -177,7 +177,7 @@ if __name__ == '__main__':
 输入两个通道，输出一个通道：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/conv-multi-in.svg">
+<img src="../assets/img/posts/chliu/conv-multi-in.svg">
 <br>
 图8 多个输入通道的卷积
 </div>
@@ -185,7 +185,7 @@ if __name__ == '__main__':
 输入三个通道，输出两个通道：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/conv-1x1.svg">
+<img src="../assets/img/posts/chliu/conv-1x1.svg">
 <br>
 图9 多个输入通道、多个输出通道的卷积
 </div>
@@ -194,7 +194,7 @@ if __name__ == '__main__':
 不改变通道，改变图片的尺寸。一般有最大池化层，平均池化层。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/pooling.svg">
+<img src="../assets/img/posts/chliu/pooling.svg">
 <br>
 图10 最大池化层
 </div>
@@ -240,7 +240,7 @@ class LeNet(nn.Module):
 AlexNet的出现掀起了深度学习的浪潮！
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/alexnet.svg">
+<img src="../assets/img/posts/chliu/alexnet.svg">
 <br>
 图11 从LeNet(左)到AlexNet(右)
 </div>
@@ -273,8 +273,8 @@ def vgg_block(num_convs, in_channels, out_channels):
 ```
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/vgg16.png">
-<img src="../../assets/img/posts/chliu/VGG.png">
+<img src="../assets/img/posts/chliu/vgg16.png">
+<img src="../assets/img/posts/chliu/VGG.png">
 <br>
 图12 VGG16
 </div>
@@ -286,7 +286,7 @@ def vgg_block(num_convs, in_channels, out_channels):
 在GoogLeNet中，基本的卷积块被称为Inception块（Inception block）。这很可能得名于电影《盗梦空间》（Inception），因为电影中的一句话“我们需要走得更深”（“We need to go deeper”）。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/inception.svg">
+<img src="../assets/img/posts/chliu/inception.svg">
 <br>
 图13 inception结构
 </div>
@@ -294,7 +294,7 @@ def vgg_block(num_convs, in_channels, out_channels):
 GoogLeNet一共使用9个Inception块和全局平均汇聚层的堆叠来生成其估计值。Inception块之间的最大汇聚层可降低维度。 第一个模块类似于AlexNet和LeNet，Inception块的组合从VGG继承，全局平均汇聚层避免了在最后使用全连接层。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/inception-full.svg">
+<img src="../assets/img/posts/chliu/inception-full.svg">
 <br>
 图14 GoogLetNet
 </div>
@@ -317,7 +317,7 @@ $$
 ResNet核心在于引入了残差块，使不同层的网络可以跳跃式连接：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/residual-block.svg">
+<img src="../assets/img/posts/chliu/residual-block.svg">
 <br>
 图15 一个正常块（左图）和一个残差块（右图）
 </div>
@@ -351,7 +351,7 @@ class Residual(nn.Module):  #@save
 ```
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/resnet-block.svg">
+<img src="../assets/img/posts/chliu/resnet-block.svg">
 <br>
 图16 包含以及不包含1x1卷积层的残差块。
 </div>
@@ -359,7 +359,7 @@ class Residual(nn.Module):  #@save
 ResNet的前两层跟之前介绍的GoogLeNet中的一样： 在输出通道数为64、步幅为2的卷积层后，接步幅为2的的最大汇聚层。 不同之处在于ResNet每个卷积层后增加了批量规范化层。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/resnet18.svg">
+<img src="../assets/img/posts/chliu/resnet18.svg">
 <br>
 图17 ResNet-18 架构
 </div>
@@ -373,7 +373,7 @@ ResNet的前两层跟之前介绍的GoogLeNet中的一样： 在输出通道数�
 #### depthwise卷积（DW卷积）
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/dw.jpg">
+<img src="../assets/img/posts/chliu/dw.jpg">
 <br>
 图18 DW卷积
 </div>
@@ -385,7 +385,7 @@ ResNet的前两层跟之前介绍的GoogLeNet中的一样： 在输出通道数�
 #### Pointwise卷积
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/pointconv.jpg">
+<img src="../assets/img/posts/chliu/pointconv.jpg">
 <br>
 图19 Pointwise卷积
 </div>
@@ -405,7 +405,7 @@ MobileNet v1的特色就是深度可分离卷积，但研究人员发现深度�
 ResNet极大地改变了如何参数化深层网络中函数的观点。 稠密连接网络（DenseNet）在某种程度上是ResNet的逻辑扩展。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/densenet-block.svg">
+<img src="../assets/img/posts/chliu/densenet-block.svg">
 <br>
 图20 ResNet（左）与 DenseNet（右）在跨层连接上的主要区别：使用相加和使用连结
 </div>
@@ -414,7 +414,7 @@ ResNet极大地改变了如何参数化深层网络中函数的观点。 稠密�
 所谓稠密连接，也就是每一层的输出与后续所有层直接连接。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/densenet.svg">
+<img src="../assets/img/posts/chliu/densenet.svg">
 <br>
 图21 稠密连接
 </div>
@@ -428,7 +428,7 @@ ResNet极大地改变了如何参数化深层网络中函数的观点。 稠密�
 # 11 语义分割里程碑之作FCN
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/ss.png">
+<img src="../assets/img/posts/chliu/ss.png">
 <br>
 图22 语义分割效果图
 </div>
@@ -440,7 +440,7 @@ ResNet极大地改变了如何参数化深层网络中函数的观点。 稠密�
 我们常见的卷积是一种下采样，一般会把图片变小；而转置卷积，可以把图片的大小变大，所以也叫反卷积，是一种上采样的方式，动图展示如下：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/inverse.gif">
+<img src="../assets/img/posts/chliu/inverse.gif">
 <br>
 图23 转置卷积
 </div>
@@ -449,7 +449,7 @@ ResNet极大地改变了如何参数化深层网络中函数的观点。 稠密�
 其实转置卷积本质上也是一种卷积操作，不过在原始图片的周围填充了很多的0，导致卷积之后图像尺寸反而变大。
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/fcn.png">
+<img src="../assets/img/posts/chliu/fcn.png">
 <br>
 图24 全卷积网络（全是卷积层，没有线性层）
 </div>
@@ -476,7 +476,7 @@ $$B\times seq_len \times word\_embeding$$
 $$\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}_{hh}  + \mathbf{b}_h).$$
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/rnn.svg">
+<img src="../assets/img/posts/chliu/rnn.svg">
 <br>
 图25 具有隐状态的循环神经网络
 </div>
@@ -484,7 +484,7 @@ $$\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}
 ## 门控卷积网络单元GRU
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/gru-3.svg">
+<img src="../assets/img/posts/chliu/gru-3.svg">
 <br>
 图26 计算门控循环单元模型中的隐状态
 </div>
@@ -492,7 +492,7 @@ $$\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}
 ## 长短期记忆网络 LSTM (Long short-term memory)
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/lstm-3.svg">
+<img src="../assets/img/posts/chliu/lstm-3.svg">
 <br>
 图27 在长短期记忆模型中计算隐状态
 </div>
@@ -504,7 +504,7 @@ $$\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}
 # 13 序列到序列seq to seq
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/encoder-decoder.png">
+<img src="../assets/img/posts/chliu/encoder-decoder.png">
 <br>
 图28 编码器-解码器架构
 </div>
@@ -526,7 +526,7 @@ transformer逐渐要称为深度学习的主流，既可以处理语言任务，
 其核心就是求不同数据的相关矩阵：
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/attention.png">
+<img src="../assets/img/posts/chliu/attention.png">
 <br>
 图29 自注意力机制
 </div>
@@ -534,7 +534,7 @@ transformer逐渐要称为深度学习的主流，既可以处理语言任务，
 # 15 ViT视觉transformer
 
 <div align="center">
-<img src="../../assets/img/posts/chliu/vit.jpg">
+<img src="../assets/img/posts/chliu/vit.jpg">
 <br>
 图30 视觉transformer
 </div>
